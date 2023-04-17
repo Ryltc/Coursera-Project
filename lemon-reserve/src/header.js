@@ -5,10 +5,9 @@ import { ReactComponent as Logo } from './icon_assets./Logo.svg';
 const Header = () => {
     return (
         <>
-        <div>
-            <img src={Logo} alt="Logo"/>
-        </div>
-        <Nav>
+            <div>
+                <img src={Logo} alt="Logo"/>
+            </div>
             <nav>
                 <ul>
                     <li><a href="/home/">Homw</a></li>
@@ -19,7 +18,6 @@ const Header = () => {
                     <li><a href="/login/">Login</a></li>
                 </ul>
             </nav>
-        </Nav>
         </>
     )
 }
