@@ -4,6 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+<head>
+  <meta name="description" content="Restaurant Reservation App"/>
+  <meta name="og:title" content="Little Lemon Reservations"/>
+  <meta name="og:description" content="Restaurant Reservation App"/>
+  <meta name="og:image" content="Logo.svg"/>
+</head>
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
