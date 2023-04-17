@@ -9,6 +9,8 @@ import reportWebVitals from './reportWebVitals';
   <meta name="og:title" content="Little Lemon Reservations"/>
   <meta name="og:description" content="Restaurant Reservation App"/>
   <meta name="og:image" content="Logo.svg"/>
+
+  <link rel="stylesheet" href="gridta.css"></link>
 </head>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
