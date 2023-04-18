@@ -1,13 +1,14 @@
 import React from 'react';
-import { ReactComponent as Logo } from './icon_assets./Logo.svg';
+import { ReactComponent as Logo } from './Logo .svg';
+import  Navbar from './copmonents/Navbar';
 
-const Header = () => {
+function header() {
     return (
         <>
-            <div>
+            <div id="header-img">
                 <img src={Logo} alt="Logo"/>
             </div>
-            <nav>
+            <Navbar>
                 <ul>
                     <li><a href="/home/">Homw</a></li>
                     <li><a href="/about/">About</a></li>
@@ -16,7 +17,7 @@ const Header = () => {
                     <li><a href="/order-online/">Order Online</a></li>
                     <li><a href="/login/">Login</a></li>
                 </ul>
-            </nav>
+            </Navbar>
         </>
     )
 }
