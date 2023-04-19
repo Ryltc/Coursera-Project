@@ -1,31 +1,36 @@
-:root {
-    --primary: #fff;
-}
-
 body {
     margin: 0;
     padding: 0;
   }
 
-  .logo {
+ .Logo {
     float: left;
+    margin-top: 15px;
+  }
+
+  .lemon {
+    margin-top: 15px;
   }
   /* ~~ Top Navigation Bar ~~ */
-
-  .navigation-container {
-    width: 1200px;
-    margin: 0 auto;
-    height: 70px;
-  }
 
   .navigation-bar {
     background-color: #352d2f;
     height: 70px;
     width: 100%;
     text-align:center;
+    display: flex;
   }
-  .navigation-bar img{
+
+  .navigation-container {
+    width: 2240px;
+    margin: 0 auto;
+    height: 70px;
+  }
+
+
+  .navigation-bar Logo {
   float:left;
+  margin-top: 15px;
   }
   .navigation-bar ul {
     padding: 0px;

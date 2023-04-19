@@ -1,12 +1,13 @@
 import React from 'react';
 import { ReactComponent as Logo } from './Logo.svg';
+import './Navbar.css';
 
 function Navbar() {
     return (
         <>
             <nav className='navigation-bar'>
                 <div className='navigation-container'>
-                    <Logo/>
+                    <Logo className="lemon"/>
                         <ul>
                             <li>
                                 <a href="/home">Home</a>
