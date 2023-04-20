@@ -79,5 +79,6 @@ h3 {
 
 .display-image {
     border-radius: 8px;
+    height: 400px;
+    width: 250px;
 }
-
