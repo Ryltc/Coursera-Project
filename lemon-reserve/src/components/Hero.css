@@ -65,7 +65,6 @@ h3 {
     font-family: klarna;
     font-style: bold;
     margin-right: 75px;
-    margin-top: 500;
     cursor: pointer;
     width: 200px;
 }
@@ -87,18 +86,18 @@ h3 {
 #right {
     width: 50%;
 }
-.specials {
+.section-wrapper {
+    display: flex;
     margin-top: 120px;
 }
 
-.specials-left {
-    float: left;
-    margin-left: 200px;
-}
+.specials-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: auto;
 
-.specials-right {
-    float: right;
-    margin-right: 450px;
 }
 
 .order-button {
@@ -114,33 +113,55 @@ h3 {
     font-weight: bold;
     font-family: klarna;
     font-style: bold;
+    margin-right: 75px;
     cursor: pointer;
-    width: 200px;
+    width: 125px;
 }
 
 .cards {
-    margin-top: 100px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-basis: auto;
-    width: 33.33%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3em;
+    margin-top: 1em;
+    width: 100%;
 }
 
-.first-card {
-    display: flex;
-    justify-content: space-between;
-    flex-basis: auto;
+.card {
+    width: 18rem;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: -4em;
 }
 
-.second-card {
-    display: flex;
-    justify-content: space-between;
-    flex-basis: auto;
+.card-img-top {
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    margin-bottom: -.2em;
+    margin-top: 8em;
+    width: 95%;
+    padding-bottom: 0%;
+    box-shadow: rgb(53, 57, 59) 5px 10px 20px;
 }
 
-.third-card {
-    display: flex;
-    justify-content: space-between;
-    flex-basis: auto;
+.card-body {
+    height: 300px;
+    background-color: rgb(32, 35, 36);
+    box-shadow: rgb(53, 57, 59) 5px 10px 20px;
+    line-height: 2em;
+    margin-right: 1em;
+    padding: 1em;
 }
+
+.card-title {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 2em;
+}
+
+.card-text {
+    display: flex;
+}
+
