@@ -11,19 +11,20 @@ body {
   .lemon {
     margin-top: 15px;
   }
-  /* ~~ Top Navigation Bar ~~ */
+
+  .nav {
+    display: block;
+    flex-direction: column;
+    text-align: center;
+  }
 
   .navigation-bar {
     background-color: #352d2f;
     height: 70px;
-    width: 100%;
-    text-align:center;
-    display: flex;
   }
 
   .navigation-container {
-    width: 2240px;
-    margin: 0 auto;
+    width: 1024px;
     height: 70px;
   }
 
@@ -32,11 +33,12 @@ body {
   float:left;
   margin-top: 15px;
   }
+
   .navigation-bar ul {
     padding: 0px;
     margin: 0px;
     text-align: center;
-    display:inline-block;
+    display: inline-block;
     vertical-align:top;
   }
 
