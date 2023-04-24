@@ -19,6 +19,46 @@ function Hero() {
                     </div>
                 </div>
             </section>
+            <section class="specials">
+                <div class="specials-container">
+                    <div class="specials-left">
+                        <h2>Specials</h2>
+                    </div>
+                    <div class="specials-right">
+                        <a class="order-button" href="/">Order Online</a>
+                    </div>
+                    <div class="cards">
+                        <div class="first-card">
+                            <img src="/" alt="Greek Salad" />
+                            <div class="card-text">
+                                <h4>Greek Salad</h4>
+                                <p>Lorem ipsum dolor sit amet, cnsectetur adipiscinng elit, sed do eiusmod tempor incididunnt ut labore et dolor</p>
+                                <h5>Order Delivery</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="second-card">
+                            <img src="/" alt="Greek Salad" />
+                            <div class="card-text">
+                                <h4>Bruschetta</h4>
+                                <p>Lorem ipsum dolor sit amet, cnsectetur adipiscinng elit, sed do eiusmod tempor incididunnt ut labore et dolor</p>
+                                <h5>Order Delivery</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="third-card">
+                            <img src="/" alt="Greek Salad" />
+                        <div class="card-text">
+                                <h4>Lemon Dessert</h4>
+                                <p>Lorem ipsum dolor sit amet, cnsectetur adipiscinng elit, sed do eiusmod tempor incididunnt ut labore et dolor</p>
+                                <h5>Order Delivery</h5>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         </>
     )
