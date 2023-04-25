@@ -1,0 +1,27 @@
+.body {
+    margin: 0;
+    padding: 0;
+  }
+
+.footer {
+    background-color: #495e57;
+    height: 300px;
+    border-top: 10px groove #495e57;
+    border-top-color: rgb(73, 94, 87);
+    display: flex;
+    height: auto;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-logo {
+  display: flex;
+  margin-top: 150px;
+  margin-right: 2em;
+  width: 60%;
+
+}
+
+.lemon {
+  margin-top: 15px;
+}
