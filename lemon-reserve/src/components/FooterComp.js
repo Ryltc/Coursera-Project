@@ -11,27 +11,27 @@ function FooterComp() {
             <div class="footer-menu">
                 <ul class="fmenu">
                     <li class="fmenu">
-                        <a href="/home">Home</a>
+                        <a class="fnavbar" href="/home">Home</a>
                     </li>
                     <br></br>
                     <li class="fmenu">
-                        <a href="/about">About</a>
+                        <a class="fnavbar" href="/about">About</a>
                     </li>
                     <br></br>
                     <li class="fmenu">
-                        <a href="/menu">Menu</a>
+                        <a class="fnavbar" href="/menu">Menu</a>
                     </li>
                     <br></br>
                     <li class="fmenu">
-                        <a href="/reservations">Reservations</a>
+                        <a class="fnavbar" href="/reservations">Reservations</a>
                     </li>
                     <br></br>
                     <li class="fmenu">
-                        <a href="/order-online">Order Online</a>
+                        <a class="fnavbar" href="/order-online">Order Online</a>
                     </li>
                     <br></br>
                     <li class="fmenu">
-                        <a href="/login">Login</a>
+                        <a class="fnavbar" href="/login">Login</a>
                     </li>
                 </ul>
             </div>

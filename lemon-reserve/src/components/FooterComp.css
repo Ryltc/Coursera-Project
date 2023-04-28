@@ -38,3 +38,23 @@
 .ul {
   list-style-type: none;
 }
+
+.fnavbar:hover {
+  color: #f77062;
+  transition: all 0.3s ease;
+}
+
+.fb {
+  color: #f77062;
+  transition: all 0.3s ease;
+}
+
+.ig {
+  color: #f77062;
+  transition: all 0.3s ease;
+}
+
+.tw {
+  color: #f77062;
+  transition: all 0.3s ease;
+}

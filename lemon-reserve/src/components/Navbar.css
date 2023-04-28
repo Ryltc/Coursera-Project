@@ -63,3 +63,8 @@ body {
   #menu {
     float: right;
   }
+
+  .navbar:hover {
+    color: #f77062;
+    transition: all 0.3s ease;
+}
