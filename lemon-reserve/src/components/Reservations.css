@@ -13,8 +13,8 @@ body {
     align-items: center;
 }
 
-.reservation-container::before {
-    opacity: .2;
+.reservation-blocked {
+    background-color: #F4CE14;
 }
 
 .reservation-header {
