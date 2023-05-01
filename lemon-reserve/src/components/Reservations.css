@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+
+
+.reservation-container {
+    background-image: url("restaurant.jpg");
+    display: flex;
+    flex-direction: column;
+    height: 500vh;
+    align-items: center;
+}
+
+.reservation-container::before {
+    opacity: .2;
+}
+
+.reservation-header {
+    display: flex;
+}
+
+.reservation-lemon {
+    align-items: center;
+    width: 300px;
+    height: 300px;
+}
+
+.reservation-subtitle > h2 {
+    text-align: center;
+    font-size: 40px;
+    color: black !important;
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.form-text {
+    display: flex;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: large;
+    color:black
+}
+
+.label {
+    float: left;
+}
+
+.booking-btn {
+    height: 55px;
+    background-color: #F4CE14;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: klarna;
+    font-style: bold;
+    margin-top: 40px;
+    cursor: pointer;
+    width: 225px;
+}
+
