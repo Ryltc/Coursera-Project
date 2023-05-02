@@ -25,7 +25,8 @@ function Reservations() {
                             <option>19:00</option>
                             <option>20:00</option>
                             <option>21:00</option>
-                            <option>22:00</option>                            <option>23:00</option>
+                            <option>22:00</option>
+                            <option>23:00</option>
                         </select><br></br>
                         <label class="form-text" for="guests">Number of Guests:</label>
                         <input id="guests" type="number" placeholder="1-10" min={"1"} max={"10"} name="guests" required="" value=""></input><br></br>
@@ -35,7 +36,7 @@ function Reservations() {
                             <option>Anniversary</option>
                             <option>Engagement</option>
                             <option>Wedding</option>
-                            <option>Divorce</option>
+                            <option>Divorce!</option>
                             <option>Promotion</option>
                         </select>
                         <button class="booking-btn" type="submit">Reserve Your Table!</button>
