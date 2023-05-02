@@ -1,14 +1,14 @@
 import React from 'react';
+import {BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import './header';
 import './main';
+import './ReservationsPage';
 import './footer';
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import FooterComp from "./components/FooterComp";
 import ReservationsPage from './ReservationsPage';
-
-
+import FooterComp from "./components/FooterComp";
 
 function App() {
   return (
@@ -19,7 +19,6 @@ function App() {
         </header>
         <main className="main">
           <Hero />
-          <ReservationsPage />
         </main>
         <footer className="footer">
           <FooterComp />

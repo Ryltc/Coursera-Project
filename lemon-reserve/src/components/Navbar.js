@@ -19,7 +19,7 @@ function Navbar() {
                                 <a class="navbar" href="/menu">Menu</a>
                             </li>
                             <li>
-                                <a class="navbar" href="/reservations">Reservations</a>
+                                <a class="navbar" href="/ReservationsPage">Reservations</a>
                             </li>
                             <li>
                                 <a class="navbar" href="/order-online">Order Online</a>

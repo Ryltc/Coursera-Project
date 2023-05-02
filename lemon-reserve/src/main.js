@@ -7,7 +7,6 @@ function main() {
     return (
         <>
             <Hero/>
-            <Reservations/>
         </>
     )
 }
