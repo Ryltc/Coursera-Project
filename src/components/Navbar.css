@@ -12,6 +12,15 @@ body {
     margin-top: 15px;
   }
 
+  header nav {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+
   .nav {
     display: flex;
     flex-direction: column;

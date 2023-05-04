@@ -10,7 +10,7 @@ function Navbar() {
                     <Logo className="lemon"/>
                         <ul>
                             <li>
-                                <a class="navbar" href="/home">Home</a>
+                                <a class="navbar" href="/Hero">Home</a>
                             </li>
                             <li>
                                 <a class="navbar" href="/about">About</a>

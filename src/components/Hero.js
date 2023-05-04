@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import  { Link } from "react-router-dom";
 
 
 function Hero() {
@@ -12,7 +13,9 @@ function Hero() {
                             <h1 class="display-title">Little Lemon</h1>
                             <h2 class="display-subtitle">Chicago</h2>
                             <h3 class="display-text">Lorem ipsum dolor sit amet, cnsectetur adipiscinng elit, sed do eiusmod tempor incididunnt ut labore et dolor</h3>
-                            <a class="reserve-button" href="/">Reserve a Table</a>
+                            <Link to="/ReservationsPage">
+                                <button type='button' class="reserve-button" href="/">Reserve a Table</button>
+                            </Link>
                         </div>
                         <div class="image-container" id="right">
                             <img src='./restaurantfood.jpg' className="display-image" alt='restaurant food' />
