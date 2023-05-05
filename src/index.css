@@ -18,13 +18,14 @@ header {
   display: block;
 }
 
-.Logo {
+header .Logo {
   float: left;
-  margin-top: 30px;
 }
 
 .lemon {
-  margin-top: 15px;
+  margin-left: 20px;
+  padding-top: 20px;
+
 }
 
 header nav {
@@ -36,8 +37,9 @@ header nav {
   height: 80px;
 }
 
+header nav .topnav {
 
-
+}
 
 .navigation-bar Logo {
 float:left;
