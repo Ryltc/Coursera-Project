@@ -1,12 +1,11 @@
-import React from 'react';
-import Hero from './components/Hero';
-import Reservations from './components/Reservations';
+//import React from 'react';
+//import Hero from './components/Hero';
 
 
-function main() {
-    return (
-        <>
-            <Hero/>
-        </>
-    )
-}
+//function main() {
+//    return (
+//        <>
+//            <Hero/>
+//        </>
+//    )
+//}
