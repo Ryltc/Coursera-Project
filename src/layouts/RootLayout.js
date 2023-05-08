@@ -9,12 +9,12 @@ export default function RootLayout() {
             <header>
                 <Logo className="lemon"/>
                 <nav>
-                    <NavLink class="topnav" to="/">Home</NavLink>
-                    <NavLink class="topnav" to="about">About</NavLink>
-                    <NavLink class="topnav" to="menu">Menu</NavLink>
-                    <NavLink class="topnav" to="/ReservationsPage">Reservations</NavLink>
-                    <NavLink class="topnav" to="Order Online">Order Online</NavLink>
-                    <NavLink class="topnav" to="Login">Login</NavLink>
+                    <NavLink class="topNav" to="/">Home</NavLink>
+                    <NavLink class="topNav" to="about">About</NavLink>
+                    <NavLink class="topNav" to="menu">Menu</NavLink>
+                    <NavLink class="topNav" to="/ReservationsPage">Reservations</NavLink>
+                    <NavLink class="topNav" to="Order Online">Order Online</NavLink>
+                    <NavLink class="topNav" to="Login">Login</NavLink>
                 </nav>
             </header>
             <main>
