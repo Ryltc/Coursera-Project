@@ -9,6 +9,7 @@ import './footer';
 // components
 import Hero from "./components/Hero";
 import ReservationsPage from './ReservationsPage';
+import ResConfirmPage from './ResConfirmPage';
 
 import RootLayout from './layouts/RootLayout';
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<RootLayout />}>
       <Route index element={<Hero />} />
       <Route path="ReservationsPage" element={<ReservationsPage />} />
+      <Route path="ResConfirmPage" element={<ResConfirmPage />} />
     </Route>
   )
 )
