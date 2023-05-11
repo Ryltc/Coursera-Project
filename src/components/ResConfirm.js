@@ -1,12 +1,11 @@
 import React from 'react';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ResConfirm.css';
-import Reservations from './Reservations';
 
 function ResConfirm() {
     return(
         <>
-        {Reservations.map((Reservations) => (
+        {reservations.map((Reservations) => (
             <section class="reservation-container">
                 <div key={Reservations.name} class="reservation-blocked">
                     <div class="reservation-header">

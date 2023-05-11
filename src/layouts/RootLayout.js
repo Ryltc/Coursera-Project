@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from './Logo.svg';
 import FooterComp from "../components/FooterComp";
 
 export default function RootLayout() {
+
     return(
         <div className="root-layout">
             <header>

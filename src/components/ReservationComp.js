@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { ReactComponent as Logo } from './Logo.svg';
-import './Reservations.css';
-import ResConfirmPage from './ResConfirmPage';
+import './ReservationComp.css';
 import  { Link } from "react-router-dom";
+import ResConfirmPage from './ResConfirmPage';
 
-function Reservations() {
+function ReservationComp() {
 
-    const [Reservations, setReservations] = useState({
+    const [reservationInfo, setReservations] = useState({
         name: "",
         date: "",
         time: "",
@@ -14,22 +14,17 @@ function Reservations() {
         occasion: "",
       });
 
-      const handleSubmit = (event) => {
+      function changeHandler(event) {
+        setReservations({ ...reservationInfo, [event.target.name]: event.target.value });
+      }
+
+      function submitHandler(event) {
         event.preventDefault();
-        Reservations(Reservations)
+        props.addReservation(reservationInfo)
         setReservations({ name: "", date: "", time: "", guests: "", occasion: "" });
       };
 
-      const handleChange = (event) => {
-        setReservations({ ...Reservations, [event.target.name]: event.target.value });
-      };
-
-      const [reservation, updateReservation] = useState([]);
-
-    const addReservation = (reservationInfo) => {
-    updateReservation([...Reservations, reservationInfo ]);
-    };
-    console.log(reservation)
+    function addReservation(reservation) { updateAllReservations([...allReservations, reservation])}
 
     return (
         <>
@@ -41,13 +36,13 @@ function Reservations() {
                     <div class="reservation-subtitle">
                         <h2>Make A Reservation!</h2>
                     </div>
-                    <form onSubmit={handleSubmit} class="reservation-form">
+                    <form onSubmit={submitHandler} class="reservation-form">
                         <label class="form-text" for="name">Name:</label>
-                        <input type="text" id="name" name="name" required minlength="4" maxlength="10" size="10" onChange={handleChange}></input><br></br>
+                        <input type="text" id="name" name="name" required="" minlength="4" maxlength="10" size="10" value={reservationInfo.name} onChange={changeHandler}></input><br></br>
                         <label class="form-text" for="res-date">Date:</label>
-                        <input id="res-date" type="date" name="date" aria-label="On change" required="" value={Reservations.date} onChange={handleChange}></input><br></br>
+                        <input id="res-date" type="date" name="date" aria-label="On change" required="" value={reservationInfo.date} onChange={changeHandler}></input><br></br>
                         <label class="form-text" for="res-time">Time:</label>
-                        <select id="res-time" name="time" required="" value={Reservations.time}>
+                        <select id="res-time" name="time" required="" value={reservationInfo.time}>
                             <option>17:00</option>
                             <option>18:00</option>
                             <option>19:00</option>
@@ -57,9 +52,9 @@ function Reservations() {
                             <option>23:00</option>
                         </select><br></br>
                         <label class="form-text" for="guests">Number of Guests:</label>
-                        <input id="guests" type="number" placeholder="1-10" min="1" max="10" name="guests" aria-label="On Change" required="" value={Reservations.guests} onChange={handleChange}></input><br></br>
+                        <input id="guests" type="number" placeholder="1-10" min="1" max="10" name="guests" aria-label="On Change" required="" value={reservationInfo.guests} onChange={changeHandler}></input><br></br>
                         <label class="form-text" for="occasion">Occasion</label>
-                        <select id="occasion" name="occasion" required="" value={Reservations.occasion}>
+                        <select id="occasion" name="occasion" required="" value={reservationInfo.occasion}>
                             <option>Birthday</option>
                             <option>Anniversary</option>
                             <option>Engagement</option>
@@ -75,10 +70,10 @@ function Reservations() {
                     </form>
                 </div>
             </section>
-            <Reservations addReservation={addReservation} />
-            <ResConfirmPage Reservations={Reservations} />
+            <ReservationComp addReservation={addReservation} />
+            <ResConfirm allReservations={addReservation} />
         </>
         )
     }
 
-export default Reservations;
+export default ReservationComp({addReservation});
