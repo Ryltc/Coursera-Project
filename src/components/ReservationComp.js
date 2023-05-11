@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
 import  { Link } from "react-router-dom";
-//import ResConfirmPage from './ResConfirmPage';
 
-function ReservationComp(props) {
+function ReservationComp() {
 
-    const [reservationInfo, setReservations] = useState({
+    const [reservationInfo, setReservation] = useState({
         name: "",
         date: "",
         time: "",
@@ -14,20 +13,12 @@ function ReservationComp(props) {
         occasion: "",
       });
 
-      function changeHandler(event) {
-        setReservations({ ...reservationInfo, [event.target.name]: event.target.value });
+      function handleChange(event) {
+        setReservation({ ...reservationInfo, [event.target.name]: event.target.value });
       }
 
-      function submitHandler(event) {
+      function handleSubmit(event) {
         event.preventDefault();
-        props.addReservation(reservationInfo)
-        setReservations({ name: "", date: "", time: "", guests: "", occasion: "" });
-      };
-
-      const [Reservations, updateReservations] = useState([]);
-
-      const addReservation = (reservation) => {
-          updateReservations([...Reservations, reservation ]);
       };
 
     return (
@@ -40,11 +31,11 @@ function ReservationComp(props) {
                     <div class="reservation-subtitle">
                         <h2>Make A Reservation!</h2>
                     </div>
-                    <form onSubmit={submitHandler} class="reservation-form">
+                    <form onSubmit={handleSubmit} class="reservation-form">
                         <label class="form-text" for="name">Name:</label>
-                        <input type="text" id="name" name="name" required="" minlength="4" maxlength="10" size="10" value={reservationInfo.name} onChange={changeHandler}></input><br></br>
+                        <input type="text" id="name" name="name" required="" minlength="4" maxlength="10" size="10" value={reservationInfo.name} onChange={handleChange}></input><br></br>
                         <label class="form-text" for="res-date">Date:</label>
-                        <input id="res-date" type="date" name="date" aria-label="On change" required="" value={reservationInfo.date} onChange={changeHandler}></input><br></br>
+                        <input id="res-date" type="date" name="date" aria-label="On change" required="" value={reservationInfo.date} onChange={handleChange}></input><br></br>
                         <label class="form-text" for="res-time">Time:</label>
                         <select id="res-time" name="time" required="" value={reservationInfo.time}>
                             <option>17:00</option>
@@ -56,7 +47,7 @@ function ReservationComp(props) {
                             <option>23:00</option>
                         </select><br></br>
                         <label class="form-text" for="guests">Number of Guests:</label>
-                        <input id="guests" type="number" placeholder="1-10" min="1" max="10" name="guests" aria-label="On Change" required="" value={reservationInfo.guests} onChange={changeHandler}></input><br></br>
+                        <input id="guests" type="number" placeholder="1-10" min="1" max="10" name="guests" aria-label="On Change" required="" value={reservationInfo.guests} onChange={handleChange}></input><br></br>
                         <label class="form-text" for="occasion">Occasion</label>
                         <select id="occasion" name="occasion" required="" value={reservationInfo.occasion}>
                             <option>Birthday</option>
@@ -74,7 +65,6 @@ function ReservationComp(props) {
                     </form>
                 </div>
             </section>
-            <ReservationComp addReservation={addReservation} />
         </>
         )
     }
