@@ -10,7 +10,6 @@ import './footer';
 import Hero from "./components/Hero";
 import ReservationsPage from './ReservationsPage';
 
-
 import RootLayout from './layouts/RootLayout';
 
 const router = createBrowserRouter(

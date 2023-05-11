@@ -1,7 +1,6 @@
 import React from 'react';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ResConfirm.css';
-import ReservationComp from './ReservationComp';
 
 function ResConfirm() {
 
@@ -12,7 +11,6 @@ function ResConfirm() {
                     <div class="reservation-header">
                         <Logo class="reservation-lemon"/>
                     </div>
-
                 </div>
             </section>
         </>
