@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
 import  { Link } from "react-router-dom";
-import ResConfirmPage from './ResConfirmPage';
+//import ResConfirmPage from './ResConfirmPage';
 
-function ReservationComp() {
+function ReservationComp(props) {
 
     const [reservationInfo, setReservations] = useState({
         name: "",
@@ -24,7 +24,11 @@ function ReservationComp() {
         setReservations({ name: "", date: "", time: "", guests: "", occasion: "" });
       };
 
-    function addReservation(reservation) { updateAllReservations([...allReservations, reservation])}
+      const [Reservations, updateReservations] = useState([]);
+
+      const addReservation = (reservation) => {
+          updateReservations([...Reservations, reservation ]);
+      };
 
     return (
         <>
@@ -71,9 +75,8 @@ function ReservationComp() {
                 </div>
             </section>
             <ReservationComp addReservation={addReservation} />
-            <ResConfirm allReservations={addReservation} />
         </>
         )
     }
 
-export default ReservationComp({addReservation});
+export default ReservationComp();

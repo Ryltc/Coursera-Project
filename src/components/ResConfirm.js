@@ -1,11 +1,13 @@
 import React from 'react';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ResConfirm.css';
+import ReservationComp from './ReservationComp';
 
 function ResConfirm() {
+
     return(
         <>
-        {reservations.map((Reservations) => (
+        {ReservationComp.map((Reservations) => (
             <section class="reservation-container">
                 <div key={Reservations.name} class="reservation-blocked">
                     <div class="reservation-header">
@@ -16,6 +18,7 @@ function ResConfirm() {
                         <p>{Reservations.guests}</p>
                         <p>{Reservations.occasion}</p>
                     </div>
+
                 </div>
             </section>
         ))}
