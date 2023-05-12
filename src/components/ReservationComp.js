@@ -19,6 +19,13 @@ function ReservationComp() {
 
       function handleSubmit(event) {
         event.preventDefault();
+        addReservation(reservationInfo);
+        setReservation({
+            name: "",
+            date: "",
+            time: "",
+            guests: "",
+            occasion: "", });
       };
 
     return (
