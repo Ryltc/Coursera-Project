@@ -19,7 +19,6 @@ function ReservationComp() {
 
       function handleSubmit(event) {
         event.preventDefault();
-        addReservation(reservationInfo);
         setReservation({
             name: "",
             date: "",
@@ -66,9 +65,8 @@ function ReservationComp() {
                             <option>Promotion</option>
                         </select>
                         <Link to="/ResConfirmPage">
-                            <button class="booking-btn" type="submit">Reserve Your Table!</button>
+                            <input class="booking-btn" type="submit" value="Make Your Reservation"></input>
                         </Link>
-                        <input type="submit" value="Make Your Reservation"></input>
                     </form>
                 </div>
             </section>
@@ -76,4 +74,4 @@ function ReservationComp() {
         )
     }
 
-export default ReservationComp();
+export default ReservationComp;

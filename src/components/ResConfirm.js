@@ -11,6 +11,9 @@ function ResConfirm() {
                     <div class="reservation-header">
                         <Logo class="reservation-lemon"/>
                     </div>
+                    <div>
+                        <h1>Reservation Confirmed!</h1>
+                    </div>
                 </div>
             </section>
         </>
