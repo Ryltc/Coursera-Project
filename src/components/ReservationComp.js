@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
-import  { Link } from "react-router-dom";
-import { render, fireEvent, screen } from "@testing-library/react";
+import  { Navigate } from "react-router-dom";
 
 function ReservationComp() {
 
@@ -14,23 +13,25 @@ function ReservationComp() {
         occasion: "",
       });
 
+      const {
+        submitHandler,
+      } = useState();
+
       function handleChange(event) {
         setReservation({ ...reservationInfo, [event.target.name]: event.target.value });
       }
 
       function handleSubmit(event) {
-        event.preventDefault();
-        setReservation({
-            name: "",
-            date: "",
-            time: "",
-            guests: "",
-            occasion: "", });
-      };
-
-      React.useEffect(() => {
-        fetchData();
-      }, []);
+        const response = submitHandler();
+        return response ? Navigate('/ResConfirm') : null;
+        //event.preventDefault();
+        //setReservation({
+        //    name: "",
+        //    date: "",
+        //    time: "",
+        //    guests: "",
+        //   occasion: "", });
+      }
 
     return (
         <>
@@ -47,31 +48,29 @@ function ReservationComp() {
                         <input type="text" id="name" name="name" required="" minlength="4" maxlength="10" size="10" value={reservationInfo.name} onChange={handleChange}></input><br></br>
                         <label class="form-text" for="res-date">Date:</label>
                         <input id="res-date" type="date" name="date" aria-label="On change" required="" value={reservationInfo.date} onChange={handleChange}></input><br></br>
-                        <label class="form-text" for="res-time">Time:</label>
-                        <select aria-label='On Change' id="res-time" name="time" required="" value={reservationInfo.time}>
-                            <option>17:00</option>
-                            <option>18:00</option>
-                            <option>19:00</option>
-                            <option>20:00</option>
-                            <option>21:00</option>
-                            <option>22:00</option>
-                            <option>23:00</option>
+                        <label for="res-time">Time:</label>
+                        <select aria-label="On Change" onChange={handleChange} id="res-time" name="time" required="" value={reservationInfo.time}>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
                         </select><br></br>
                         <label class="form-text" for="guests">Number of Guests:</label>
                         <input id="guests" type="number" placeholder="1-10" min="1" max="10" name="guests" aria-label="On Change" required="" value={reservationInfo.guests} onChange={handleChange}></input><br></br>
-                        <label class="form-text" for="occasion">Occasion</label>
-                        <select aria-label='On Change' id="occasion" name="occasion" required="" value={reservationInfo.occasion}>
-                            <option>Birthday</option>
-                            <option>Anniversary</option>
-                            <option>Engagement</option>
-                            <option>Wedding Party</option>
-                            <option>Divorce!</option>
-                            <option>Treat Yo'Self!</option>
-                            <option>Promotion</option>
+                        <label for="occasion" >Occasion</label>
+                        <select aria-label="On Change" onChange={handleChange} id="occasion" name="occasion" required="" value={reservationInfo.occasion}>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Anniversary">Anniversary</option>
+                            <option value="Engagement">Engagement</option>
+                            <option value="Wedding">Wedding Party</option>
+                            <option value="Divorce!">Divorce!</option>
+                            <option value="Treat Yo'Self!">Treat Yo'Self!</option>
+                            <option value="Promotion">Promotion</option>
                         </select>
-                        <Link to="/ResConfirmPage">
-                            <input class="booking-btn" type="submit" value="Make Your Reservation"></input>
-                        </Link>
+                        <input class="booking-btn" type="submit" value="Make Your Reservation"></input>
                     </form>
                 </div>
             </section>

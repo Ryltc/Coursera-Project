@@ -2,8 +2,13 @@ import React from 'react';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ResConfirm.css';
 
-function ResConfirm() {
-
+const ResConfirm = ({
+    name,
+    date,
+    time,
+    guests,
+    occasion
+}) => {
     return(
         <>
             <section class="reservation-container">
@@ -12,7 +17,18 @@ function ResConfirm() {
                         <Logo class="reservation-lemon"/>
                     </div>
                     <div>
-                        <h1>Reservation Confirmed!</h1>
+                        <h2>Reservation Confirmed!</h2>
+                        <h1>Thank you for your booking, {name}!</h1>
+                        <p>
+                            Your Reservation is confirmed for {date} at {time} for {guests}{" "}
+                            {guests === 1 ? "guest" : "guests"}.
+                        </p>
+                            {occasion && (
+                        <p>
+                            Come Celebrate Your{" "}
+                            {occasion === "birthday" ? "a" : "an"} {occasion}.
+                        </p>
+                        )}
                     </div>
                 </div>
             </section>
