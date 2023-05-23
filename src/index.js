@@ -16,6 +16,7 @@ import reportWebVitals from './reportWebVitals';
   <link rel="stylesheet" href="grid.css"></link>
   <link href='https://fonts.googleapis.com/css?family=Markazi Text' rel='stylesheet'></link>
   <link href='https://fonts.googleapis.com/css?family=Klarna' rel='stylesheet'></link>
+  <script src="https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js"></script>
 </head>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
