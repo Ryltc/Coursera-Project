@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
-import  { Navigate } from "react-router-dom";
 
-function ReservationComp() {
+const ReservationComp = ({ navigate }) => {
 
     const [reservationInfo, setReservation] = useState({
         name: "",
@@ -13,25 +13,24 @@ function ReservationComp() {
         occasion: "",
       });
 
-      const {
-        submitHandler,
-      } = useState();
+      function handleSubmit() {
+        const response = submitHandler();
+        return response ? navigate('./ResComfirmPage') : null;
+      };
+
+      const { submitHandler } = useForm();
+
+      const onSubmit = (reservationInfo, e) => console.log(reservationInfo, e);
+      const onError = (errors, e) => console.log(errors, e);
 
       function handleChange(event) {
         setReservation({ ...reservationInfo, [event.target.name]: event.target.value });
       }
 
-      function handleSubmit(event) {
-        const response = submitHandler();
-        return response ? Navigate('/ResConfirm') : null;
-        //event.preventDefault();
-        //setReservation({
-        //    name: "",
-        //    date: "",
-        //    time: "",
-        //    guests: "",
-        //   occasion: "", });
-      }
+      //function handleSubmit(event) {
+    //const response = submitHandler();
+      //  event.preventDefault();
+      //  return response ? Navigate('./ResComfirmPage') : null;
 
     return (
         <>
@@ -43,7 +42,7 @@ function ReservationComp() {
                     <div class="reservation-subtitle">
                         <h2>Make A Reservation!</h2>
                     </div>
-                    <form onSubmit={handleSubmit} aria-label='On Submit' class="reservation-form">
+                    <form onSubmit={handleSubmit(onSubmit, onError)} aria-label='On Submit' className="reservation-form">
                         <label class="form-text" for="name">Name:</label>
                         <input type="text" id="name" name="name" required="" minlength="4" maxlength="10" size="10" value={reservationInfo.name} onChange={handleChange}></input><br></br>
                         <label class="form-text" for="res-date">Date:</label>
@@ -70,7 +69,7 @@ function ReservationComp() {
                             <option value="Treat Yo'Self!">Treat Yo'Self!</option>
                             <option value="Promotion">Promotion</option>
                         </select>
-                        <input class="booking-btn" type="submit" value="Make Your Reservation"></input>
+                        <button class="booking-btn" type="submit" value="Make Your Reservation"></button>
                     </form>
                 </div>
             </section>
