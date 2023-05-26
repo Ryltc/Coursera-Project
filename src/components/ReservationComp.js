@@ -2,8 +2,18 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
+import { Navigate } from 'react-router-dom';
 
-const ReservationComp = ({ navigate }) => {
+function ReservationComp() {
+
+    const { submitHandler } = useForm();
+    const onSubmit = reservationInfo => console.log(reservationInfo)
+    const onError = (errors, e) => console.log(errors, e);
+
+    function handleSubmit() {
+        const response = submitHandler();
+        return response ? Navigate('./ResComfirmPage') : null;
+    };
 
     const [reservationInfo, setReservation] = useState({
         name: "",
@@ -13,25 +23,9 @@ const ReservationComp = ({ navigate }) => {
         occasion: "",
       });
 
-      function handleSubmit() {
-        const response = submitHandler();
-        return response ? navigate('./ResComfirmPage') : null;
-      };
-
-      const { submitHandler } = useForm();
-
-      const onSubmit = (reservationInfo, e) => console.log(reservationInfo, e);
-      const onError = (errors, e) => console.log(errors, e);
-
       function handleChange(event) {
         setReservation({ ...reservationInfo, [event.target.name]: event.target.value });
       }
-
-      //function handleSubmit(event) {
-    //const response = submitHandler();
-      //  event.preventDefault();
-      //  return response ? Navigate('./ResComfirmPage') : null;
-
     return (
         <>
             <section class="reservation-container">
@@ -69,7 +63,7 @@ const ReservationComp = ({ navigate }) => {
                             <option value="Treat Yo'Self!">Treat Yo'Self!</option>
                             <option value="Promotion">Promotion</option>
                         </select>
-                        <button class="booking-btn" type="submit" value="Make Your Reservation"></button>
+                        <button class="booking-btn" type="submit" value="Make Your Reservation">Confirm Reservation!</button>
                     </form>
                 </div>
             </section>
