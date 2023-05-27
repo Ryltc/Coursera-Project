@@ -15,6 +15,10 @@ function ReservationComp() {
         return response ? Navigate('./ResComfirmPage') : null;
     };
 
+    function handleChange(event) {
+        setReservation({ ...reservationInfo, [event.target.name]: event.target.value });
+      }
+
     const [reservationInfo, setReservation] = useState({
         name: "",
         date: "",
@@ -23,9 +27,6 @@ function ReservationComp() {
         occasion: "",
       });
 
-      function handleChange(event) {
-        setReservation({ ...reservationInfo, [event.target.name]: event.target.value });
-      }
     return (
         <>
             <section class="reservation-container">
