@@ -9,7 +9,7 @@ const ResConfirm = ({
     guests,
     occasion
 }) => {
-    return(
+    return (
         <>
             <section class="reservation-container">
                 <div class="reservation-blocked">

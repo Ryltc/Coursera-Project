@@ -18,7 +18,7 @@ const ReservationComp = ({ navigate }) => {
 
     function handleSubmit() {
         const response = submitHandler();
-        return response ? navigate("./ResConfirm") : null;
+        return response ? navigate("/ResConfirm") : null;
     }
 
     //function handleSubmit()  {

@@ -1,5 +1,5 @@
 import { useState, useReducer, useEffect } from "react";
-import { fetchAPI, submitAPI } from "../layout/RootLayout.js";
+import { fetchAPI, submitAPI } from "../APIs/apiMockup";
 import { useFormContext } from "../store/FormContext";
 
 const initialState = {
@@ -31,11 +31,6 @@ function formReducer(state, action) {
         ...state,
         name: action.payload,
       };
-    case ACTION_TYPES.EMAIL:
-      return {
-        ...state,
-        email: action.payload,
-      };
     case ACTION_TYPES.DATE:
       return {
         ...state,
@@ -51,20 +46,10 @@ function formReducer(state, action) {
         ...state,
         numberOfGuests: action.payload,
       };
-    case ACTION_TYPES.TABLE:
-      return {
-        ...state,
-        tablePreference: action.payload,
-      };
     case ACTION_TYPES.OCCASION:
       return {
         ...state,
         occasion: action.payload,
-      };
-    case ACTION_TYPES.MESSAGE:
-      return {
-        ...state,
-        message: action.payload,
       };
     default:
       return state;
