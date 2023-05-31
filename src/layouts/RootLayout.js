@@ -3,6 +3,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import { ReactComponent as Logo } from './Logo.svg';
 import FooterComp from "../components/FooterComp";
 
+<script src="https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js"></script>
+
 export default function RootLayout() {
 
     return(
