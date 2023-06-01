@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterProvider, } from "react-router-dom";
 import './App.css';
 import './header';
 import './main';
@@ -18,6 +18,9 @@ import { useFormContext } from './store/FormContext';
 
 function App() {
   const { form } = useFormContext();
+  useEffect(() => {
+    fetch('./APIs/apiMockup.js')
+  })
 
 const formProps = {
   name: form.name,
@@ -29,14 +32,14 @@ const formProps = {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<RootLayout />}>
+    <Routes path='/' element={<RootLayout />}>
       <Route index element={<Hero />} />
       <Route path="ReservationsPage" element={<ReservationsPage />} />
       <Route
        path="/ResConfirmPage"
        element={<ResConfirmPage {...formProps} />}
        />
-    </Route>
+    </Routes>
   )
 )
   return (

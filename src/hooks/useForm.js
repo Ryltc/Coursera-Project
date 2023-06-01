@@ -8,9 +8,7 @@ const initialState = {
   date: "",
   time: "",
   numberOfGuests: 1,
-  tablePreference: "",
   occasion: "",
-  message: "",
 };
 
 const ACTION_TYPES = {
@@ -19,9 +17,7 @@ const ACTION_TYPES = {
   DATE: 2,
   TIME: 3,
   GUESTS: 4,
-  TABLE: 5,
   OCCASION: 6,
-  MESSAGE: 7,
 };
 
 function formReducer(state, action) {
@@ -58,7 +54,7 @@ function formReducer(state, action) {
 
 const useForm = () => {
   const [form, dispatch] = useReducer(formReducer, initialState);
-  const [timeSlots, setTimeslots] = useState(["Choose date first"]);
+  const [timeSlots, setTimeslots] = useState(["17:00"]);
   const [isFormValid, setFormValid] = useState(false);
   const formContext = useFormContext();
 
@@ -94,7 +90,6 @@ const useForm = () => {
   const changeOccasionHandler = (e) => {
     dispatch({ type: ACTION_TYPES.OCCASION, payload: e.target.value });
   };
-
 
   const submitHandler = (e) => {
     e.preventDefault();
