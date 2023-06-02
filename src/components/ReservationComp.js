@@ -1,7 +1,10 @@
 import React from 'react';
-import  useForm from '../hooks/useForm'
+import useForm from '../hooks/useForm'
+import FormProvider  from '../store/FormContext'
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
+
+
 
 const ReservationComp = ({ navigate }) => {
     const {
@@ -20,6 +23,8 @@ const ReservationComp = ({ navigate }) => {
         const response = submitHandler();
         return response ? navigate("/ResConfirm") : null;
     }
+    const methods = useFormContext();
+    const onSubmit = data => console.log(data);
 
     return (
         <>
@@ -31,7 +36,8 @@ const ReservationComp = ({ navigate }) => {
                     <div class="reservation-subtitle">
                         <h2>Make A Reservation!</h2>
                     </div>
-                    <form onSubmit={handleSubmit} aria-label='On Submit' className="reservation-form">
+                    <FormProvider {...methods}>
+                    <form onSubmit={methods.handleSubmit(onSubmit)} aria-label='On Submit' className="reservation-form">
                         <label class="form-text" for="name">Enter name</label>
                         <input type="text" id="name" name="name" required="" minlength="4" maxlength="10" size="10" value={form.name} onChange={changeNameHandler}></input><br></br>
                         <label class="form-text" for="res-date">Choose date</label>
@@ -58,6 +64,7 @@ const ReservationComp = ({ navigate }) => {
                         </select>
                         <button  disabled={!isFormValid} class="booking-btn" type="submit" value="Make Reservation">Make Reservation</button>
                     </form>
+                    </FormProvider>
                 </div>
             </section>
         </>
