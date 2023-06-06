@@ -1,6 +1,6 @@
 import React from 'react';
 import useForm from '../hooks/useForm'
-import FormProvider  from '../store/FormContext'
+import { FormProvider, useFormContext }  from '../store/FormContext'
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
 
@@ -28,21 +28,21 @@ const ReservationComp = ({ navigate }) => {
 
     return (
         <>
-            <section class="reservation-container">
-                <div class="reservation-blocked">
-                    <div class="reservation-header">
-                        <Logo class="reservation-lemon"/>
+            <section className="reservation-container">
+                <div className="reservation-blocked">
+                    <div className="reservation-header">
+                        <Logo className="reservation-lemon"/>
                     </div>
-                    <div class="reservation-subtitle">
+                    <div className="reservation-subtitle">
                         <h2>Make A Reservation!</h2>
                     </div>
                     <FormProvider {...methods}>
-                    <form onSubmit={methods.handleSubmit(onSubmit)} aria-label='On Submit' className="reservation-form">
-                        <label class="form-text" for="name">Enter name</label>
-                        <input type="text" id="name" name="name" required="" minlength="4" maxlength="10" size="10" value={form.name} onChange={changeNameHandler}></input><br></br>
-                        <label class="form-text" for="res-date">Choose date</label>
+                    <form onSubmit={handleSubmit(onSubmit)} aria-label='On Submit' className="reservation-form">
+                        <label className="form-text" htmlFor="name">Enter name</label>
+                        <input type="text" id="name" name="name" required="" minLength="4" maxLength="10" size="10" value={form.name} onChange={changeNameHandler}></input><br></br>
+                        <label className="form-text" htmlFor="res-date">Choose date</label>
                         <input id="res-date" type="date" name="date" aria-label="On change" required="" value={form.date} onChange={changeDateHandler}></input><br></br>
-                        <label for="res-time">Choose time</label>
+                        <label htmlFor="res-time">Choose time</label>
                         <select aria-label="On Change" onChange={changeTimeHandler} id="res-time" name="time" required="" value={form.time}>
                             {timeSlots.map((slot) => (
                                 <option key={slot} value={slot}>
@@ -50,19 +50,19 @@ const ReservationComp = ({ navigate }) => {
                                 </option>
                             ))}
                         </select><br></br>
-                        <label class="form-text" for="guests">Number of Guests:</label>
+                        <label className="form-text" htmlFor="guests">Number of Guests:</label>
                         <input id="guests" type="number" placeholder="1-10" min="1" max="10" name="guests" aria-label="On Change" required="" value={form.guests} onChange={changeGuestsHandler}></input><br></br>
-                        <label for="occasion" >Occasion</label>
+                        <label htmlFor="occasion" >Occasion</label>
                         <select aria-label="On Change" onChange={changeOccasionHandler} id="occasion" name="occasion" required="" value={form.occasion}>
                             <option value="Birthday">Birthday</option>
                             <option value="Anniversary">Anniversary</option>
                             <option value="Engagement">Engagement</option>
                             <option value="Wedding">Wedding Party</option>
                             <option value="Divorce!">Divorce!</option>
-                            <option value="Treat Yo'Self!">Treat Yo'Self!</option>
+                            <option value="Treat Yo-Self!">Treat Yo-Self!</option>
                             <option value="Promotion">Promotion</option>
                         </select>
-                        <button  disabled={!isFormValid} class="booking-btn" type="submit" value="Make Reservation">Make Reservation</button>
+                        <button  disabled={!isFormValid} className="booking-btn" type="submit" value="Make Reservation">Make Reservation</button>
                     </form>
                     </FormProvider>
                 </div>

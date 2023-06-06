@@ -11,10 +11,10 @@ const ResConfirm = ({
 }) => {
     return (
         <>
-            <section class="reservation-container">
-                <div class="reservation-blocked">
-                    <div class="reservation-header">
-                        <Logo class="reservation-lemon"/>
+            <section className="reservation-container">
+                <div className="reservation-blocked">
+                    <div className="reservation-header">
+                        <Logo className="reservation-lemon"/>
                     </div>
                     <div>
                         <h2>Reservation Confirmed!</h2>
