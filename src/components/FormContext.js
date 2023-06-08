@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 
-
 const FormProvider = ({ children }) => {
   const [form, setForm] = useState({
     name: "",
