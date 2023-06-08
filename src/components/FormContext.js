@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const FormContext = React.createContext();
+
 
 const FormProvider = ({ children }) => {
   const [form, setForm] = useState({
@@ -29,3 +29,4 @@ const FormProvider = ({ children }) => {
 
 export default FormProvider;
 
+export const FormContext = React.createContext();
