@@ -14,7 +14,7 @@ import ReservationsPage from './ReservationsPage';
 import ResConfirmPage from './ResConfirmPage';
 
 import RootLayout from './layouts/RootLayout';
-import { useFormContext } from './store/FormContext';
+import { useFormContext } from '../store/FormProvider';
 
 function App() {
   const { form } = useFormContext();

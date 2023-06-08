@@ -5,20 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-<head>
-  <meta name="description" content="Restaurant Reservation App"/>
-  <meta name="og:title" content="Little Lemon Reservations"/>
-  <meta name="og:description" content="Restaurant Reservation App"/>
-  <meta name="og:image" content="Logo.svg"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" name='viewport' />
-
-  <link rel="stylesheet" href="grid.css"></link>
-  <link href='https://fonts.googleapis.com/css?family=Markazi Text' rel='stylesheet'></link>
-  <link href='https://fonts.googleapis.com/css?family=Klarna' rel='stylesheet'></link>
-  <script src="https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js"></script>
-</head>
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
