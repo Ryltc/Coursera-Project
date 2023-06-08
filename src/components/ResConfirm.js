@@ -1,8 +1,9 @@
 import React from 'react';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ResConfirm.css';
+import propTypes from 'prop-types';
 
-const ResConfirm = ({
+ResConfirm.propTypes = ({
     name,
     date,
     time,
