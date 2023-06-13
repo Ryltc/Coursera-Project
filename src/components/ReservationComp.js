@@ -1,6 +1,6 @@
 import React from 'react';
 import useForm from '../hooks/useForm';
-import { FormProvider, useFormContext }  from './FormContext';
+import { FormProvider, useFormContext }  from 'react-hook-form';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
 
@@ -37,7 +37,7 @@ const ReservationComp = ({ navigate }) => {
                         <h2>Make A Reservation!</h2>
                     </div>
                     <FormProvider {...methods}>
-                    <form onSubmit={methods.handleSubmit(onSubmit)} aria-label='On Submit' className="reservation-form">
+                    <form onSubmit={handleSubmit(onSubmit)} aria-label='On Submit' className="reservation-form">
                         <label className="form-text" htmlFor="name">Enter name</label>
                         <input type="text" id="name" name="name" required="" minLength="4" maxLength="10" size="10" value={form.name} onChange={changeNameHandler}></input><br></br>
                         <label className="form-text" htmlFor="res-date">Choose date</label>

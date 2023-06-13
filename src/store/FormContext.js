@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 
 const FormProvider = ({ children }) => {
@@ -26,6 +26,8 @@ const FormProvider = ({ children }) => {
   );
 };
 
-export default FormProvider ;
 
-export const FormContext = React.createContext();
+//export { FormProvider, useFormContext };
+export default FormProvider;
+
+export const FormContext = () => useContext(FormContext);
