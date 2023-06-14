@@ -14,7 +14,7 @@ import ReservationsPage from './ReservationsPage';
 import ResConfirmPage from './ResConfirmPage';
 
 import RootLayout from './layouts/RootLayout';
-import { useFormContext } from 'react-hook-form';
+import { useFormContext } from './store/FormContext';
 
 function App() {
   const { form } = useFormContext();
@@ -45,6 +45,6 @@ const router = createBrowserRouter(
   return (
     <RouterProvider router={router} />
   );
-}
+  }
 
 export default App;
