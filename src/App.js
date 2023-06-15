@@ -18,9 +18,9 @@ import { useFormContext } from './store/FormContext';
 
 function App() {
   const { form } = useFormContext();
-  useEffect(() => {
-    fetch('./APIs/apiMockup.js')
-  })
+  //useEffect(() => {
+  //  fetch('./APIs/apiMockup.js')
+  //})
 
 const formProps = {
   name: form.name,
