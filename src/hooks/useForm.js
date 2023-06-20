@@ -1,6 +1,6 @@
 import { useState, useReducer, useEffect } from "react";
 import { fetchAPI, submitAPI } from "../APIs/apiMockup";
-import { useFormContext } from "react-hook-form";
+import { useFormContext } from "./store/FormContext";
 
 const initialState = {
   name: "",

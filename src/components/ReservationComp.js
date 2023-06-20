@@ -1,6 +1,6 @@
 import React from 'react';
-import useForm from '../hooks/useForm';
-import { FormProvider, useFormContext }  from './store/FormContext';
+//import useForm from '../hooks/useForm';
+import { useForm, FormProvider, useFormContext }  from 'react-hook-form';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
 
