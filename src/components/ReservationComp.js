@@ -62,13 +62,20 @@ const ReservationComp = ({ navigate }) => {
                                 <option value="Treat Yo-Self!">Treat Yo-Self!</option>
                                 <option value="Promotion">Promotion</option>
                             </select>
+                            <NestedInput />
+                            <input type="submit" />
                             <button  disabled={!isFormValid} className="booking-btn" type="submit" value="Make Reservation">Make Reservation</button>
                         </form>
                     </FormProvider>
                 </div>
             </section>
         </>
-        )
+        );
+    }
+
+    function NestedInput() {
+        const { form } = useFormContext();
+        return <input {...form("test")} />;
     }
 
 export default ReservationComp;

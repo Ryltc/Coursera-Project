@@ -10,6 +10,7 @@ import Hero from "./components/Hero";
 import ReservationsPage from './ReservationsPage';
 import ResConfirmPage from './ResConfirmPage';
 import RootLayout from './layouts/RootLayout';
+import Navbar from './components/Navbar';
 import { useFormContext } from 'react-hook-form';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Navbar />
         <Routes path='/' element={<RootLayout />}>
           <Route index element={<Hero />} />
           <Route path="ReservationsPage" element={<ReservationsPage />} />
