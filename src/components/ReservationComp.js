@@ -23,7 +23,7 @@ const ReservationComp = ({ navigate }) => {
         const response = submitHandler();
         return response ? navigate("/ResConfirm") : null;
     }
-    const methods = useFormContext();
+
     const onSubmit = data => console.log(data);
 
     return (
@@ -36,7 +36,16 @@ const ReservationComp = ({ navigate }) => {
                     <div className="reservation-subtitle">
                         <h2>Make A Reservation!</h2>
                     </div>
-                    <FormProvider {...methods}>
+                    <FormProvider>
+                        form={form}
+                        timeSlots={timeSlots}
+                        isFormValid={isFormValid}
+                        changeNameHandler={changeNameHandler}
+                        changeDateHandler={changeDateHandler}
+                        changeTimeHandler={changeTimeHandler}
+                        changeGuestsHandler={changeGuestsHandler}
+                        changeOccasionHandler={changeOccasionHandler}
+                        submitHandler={submitHandler}
                         <form onSubmit={handleSubmit(onSubmit)} aria-label='On Submit' className="reservation-form">
                             <label className="form-text" htmlFor="name">Enter name</label>
                             <input type="text" id="name" name="name" required="" minLength="4" maxLength="10" size="10" value={form.name} onChange={changeNameHandler}></input><br></br>
@@ -74,8 +83,8 @@ const ReservationComp = ({ navigate }) => {
     }
 
     function NestedInput() {
-        const { form } = useFormContext();
-        return <input {...form("test")} />;
+        const { register } = useFormContext();
+        return <input {...register("test")} />;
     }
 
 export default ReservationComp;
