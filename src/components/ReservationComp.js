@@ -7,6 +7,7 @@ import './ReservationComp.css';
 
 
 const ReservationComp = ({ navigate }) => {
+    const methods = useForm();
     const {
       form,
       timeSlots,
@@ -16,13 +17,7 @@ const ReservationComp = ({ navigate }) => {
       changeTimeHandler,
       changeGuestsHandler,
       changeOccasionHandler,
-      submitHandler,
-    } = useForm();
-
-    function handleSubmit() {
-        const response = submitHandler();
-        return response ? navigate("/ResConfirm") : null;
-    }
+    } = methods;
 
     const onSubmit = data => console.log(data);
 
@@ -36,17 +31,8 @@ const ReservationComp = ({ navigate }) => {
                     <div className="reservation-subtitle">
                         <h2>Make A Reservation!</h2>
                     </div>
-                    <FormProvider>
-                        form={form}
-                        timeSlots={timeSlots}
-                        isFormValid={isFormValid}
-                        changeNameHandler={changeNameHandler}
-                        changeDateHandler={changeDateHandler}
-                        changeTimeHandler={changeTimeHandler}
-                        changeGuestsHandler={changeGuestsHandler}
-                        changeOccasionHandler={changeOccasionHandler}
-                        submitHandler={submitHandler}
-                        <form onSubmit={handleSubmit(onSubmit)} aria-label='On Submit' className="reservation-form">
+                    <FormProvider {...methods}>
+                        <form onSubmit={methods.handleSubmit(onSubmit)} aria-label='On Submit' className="reservation-form">
                             <label className="form-text" htmlFor="name">Enter name</label>
                             <input type="text" id="name" name="name" required="" minLength="4" maxLength="10" size="10" value={form.name} onChange={changeNameHandler}></input><br></br>
                             <label className="form-text" htmlFor="res-date">Choose date</label>
@@ -81,10 +67,10 @@ const ReservationComp = ({ navigate }) => {
         </>
         );
     }
+function NestedInput() {
+    const { register } = useFormContext();
 
-    function NestedInput() {
-        const { register } = useFormContext();
-        return <input {...register("test")} />;
-    }
+    return <input {...register("test")} />;
+}
 
 export default ReservationComp;

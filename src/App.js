@@ -11,27 +11,18 @@ import ReservationsPage from './ReservationsPage';
 import ResConfirmPage from './ResConfirmPage';
 import RootLayout from './layouts/RootLayout';
 import Navbar from './components/Navbar';
-import { useFormContext } from 'react-hook-form';
+import FooterComp from './components/FooterComp';
 
 function App() {
-  const { form } = useFormContext();
-
-  const formProps = {
-    name: form.name,
-    date: form.date,
-    time: form.time,
-    guests: form.numberOfGuests,
-    occasion: form.occasion,
-  };
-
   return (
     <BrowserRouter>
       <Navbar />
         <Routes path='/' element={<RootLayout />}>
           <Route index element={<Hero />} />
           <Route path="ReservationsPage" element={<ReservationsPage />} />
-          <Route path="/ResConfirmPage" element={<ResConfirmPage {...formProps} />} />
+          <Route path="/ResConfirmPage" element={<ResConfirmPage />} />
         </Routes>
+      <FooterComp />
     </BrowserRouter>
     );
   }
