@@ -6,7 +6,7 @@ import './ReservationsPage.css';
 
 
 
-function ReservationPage() {
+/*function ReservationPage() {
     const { form } = useFormContext();
 
     const formProps = {
@@ -20,8 +20,33 @@ function ReservationPage() {
     const navigate = useNavigate();
     return (
         <>
+        <FormProvider {...methods}>
+            <ReservationComp />
+        </FormProvider>
             <ReservationComp navigate={navigate} {...formProps} />
         </>
     )
 }
-export default ReservationPage;
+export default ReservationPage;*/
+
+function ReservationPage() {
+    const { form } = useFormContext();
+
+    const formProps = {
+      name: form.name,
+      date: form.date,
+      time: form.time,
+      guests: form.numberOfGuests,
+      occasion: form.occasion,
+    };
+
+    const navigate = useNavigate();
+
+    return (
+      <>
+        <ReservationComp navigate={navigate} {...formProps} />
+      </>
+    );
+  }
+
+  export default ReservationPage;
