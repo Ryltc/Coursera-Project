@@ -1,6 +1,6 @@
 import { useState, useReducer, useEffect } from "react";
-//import { fetchAPI, submitAPI } from "../APIs/apiMockup";
-//import { useFormContext } from 'react-hook-form';
+import { fetchAPI, submitAPI } from "../APIs/apiMockup";
+import { useFormContext } from 'react-hook-form';
 
 const initialState = {
   name: "",
@@ -53,10 +53,26 @@ function formReducer(state, action) {
 }
 
 const useForm = () => {
-  const [form, dispatch] = useReducer(formReducer, initialState);
-  //const [timeSlots, setTimeslots] = useState(["17:00"]);
+  const [form, setform, dispatch] = useReducer(formReducer, initialState);
+  const [setTimeslots] = useState(["17:00"]);
+  const timeSlots = [
+    "17:00 PM",
+    "17:30 PM",
+    "18:00 PM",
+    "18:30 PM",
+    "19:00 PM",
+    "19:30 PM",
+    "20:00 PM",
+    "20:30 PM",
+    "21:00 PM",
+    "21:30 PM",
+    "22:00 PM",
+    "22:30 PM",
+    "23:00 PM",
+    "23:30 PM",
+  ];
   const [isFormValid, setFormValid] = useState(false);
-  //const formContext = useFormContext();
+  const formContext = useFormContext();
 
   useEffect(() => {
     if (
@@ -76,7 +92,7 @@ const useForm = () => {
 
   const changeDateHandler = (e) => {
     dispatch({ type: ACTION_TYPES.DATE, payload: e.target.value });
-    //setTimeslots(fetchAPI(new Date(e.target.value)));
+    setTimeslots(fetchAPI(new Date(e.target.value)));
   };
 
   const changeTimeHandler = (e) => {
@@ -95,16 +111,17 @@ const useForm = () => {
     e.preventDefault();
     let response;
 
-   // if (isFormValid) {
-   //   response = submitAPI(form);
-   //   formContext.setForm(form);
-   // }
+    if (isFormValid) {
+      response = submitAPI(form);
+      formContext.setForm(form);
+    }
     return response ? true : false;
   };
 
   return {
     form,
-    //timeSlots,
+    methods: {
+    timeSlots,
     isFormValid,
     changeNameHandler,
     changeDateHandler,
@@ -112,6 +129,7 @@ const useForm = () => {
     changeGuestsHandler,
     changeOccasionHandler,
     submitHandler,
+    },
   };
 };
 
