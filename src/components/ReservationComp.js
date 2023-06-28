@@ -2,13 +2,13 @@ import React from 'react';
 import { useFormContext }  from 'react-hook-form';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
+import useForm from '../hooks/useForm';
 
 
 
 const ReservationComp = ({ navigate }) => {
-    const Methods = useFormContext();
+    const { form, Methods } = useForm();
     const {
-      form,
       timeSlots,
       isFormValid,
       changeNameHandler,
@@ -18,6 +18,8 @@ const ReservationComp = ({ navigate }) => {
       changeOccasionHandler,
       handleSubmit
     } = Methods;
+
+    const formContext = useFormContext();
 
     const onSubmit = (data) => {
         console.log(data);
@@ -36,7 +38,7 @@ const ReservationComp = ({ navigate }) => {
                         <h2>Make A Reservation!</h2>
                     </div>
                         <form
-                            onSubmit={Methods.handleSubmit(onSubmit)}
+                            onSubmit={handleSubmit(onSubmit)}
                             aria-label='On Submit'
                             className="reservation-form">
                             <label className="form-text" htmlFor="name">
@@ -50,7 +52,7 @@ const ReservationComp = ({ navigate }) => {
                                 minLength="4"
                                 maxLength="10"
                                 size="10"
-                                value={form ? form.name : ''}
+                                value={form && form.name ? form.name : ''}
                                 onChange={changeNameHandler}
                             ></input>
                             <br />
