@@ -1,7 +1,7 @@
 import {  useState, useEffect, useReducer,  } from "react";
 import { submitAPI } from "../APIs/apiMockup";
 import { useFormContext } from 'react-hook-form';
-import { fetchAPI } from "../APIs/apiMockup";
+//import { fetchAPI } from "../APIs/apiMockup";
 
 const initialState = {
   name: "",
@@ -83,7 +83,7 @@ const useForm = () => {
     "22:30 PM",
     "23:00 PM",
   ];
-  const [ setTimeslots] = useState(["Choose date first"]);
+  const [setTimeslots] = useState([]);
   const [isFormValid, setFormValid] = useState(false);
   const formContext = useFormContext();
 
@@ -107,7 +107,19 @@ const useForm = () => {
 
   const changeDateHandler = (e) => {
     dispatch({ type: ACTION_TYPES.DATE, payload: e.target.value });
-    setTimeslots(fetchAPI(new Date(e.target.value)));
+    fetchTimeSlots(new Date(e.target.value))
+      .then((slots) => setTimeslots([...timeSlots, ...slots]))
+      .catch((error) => console.log(error));
+  };
+
+  const fetchTimeSlots = async (date) => {
+    try {
+      const response = await fetch("your-api-url");
+      const data = await response.json();
+      return data.timeSlots;
+    } catch (error) {
+      throw new Error("Failed to fetch time slots");
+    }
   };
 
   const changeTimeHandler = (e) => {
@@ -138,6 +150,7 @@ const useForm = () => {
     dispatch,
     methods: {
       timeSlots,
+      setTimeslots,
       isFormValid,
       changeNameHandler,
       changeDateHandler,

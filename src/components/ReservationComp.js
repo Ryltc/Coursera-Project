@@ -15,8 +15,9 @@ const ReservationComp = ({ navigate }) => {
       changeTimeHandler,
       changeGuestsHandler,
       changeOccasionHandler,
-      handleSubmit
     } = methods;
+    const formMethods = useFormContext();
+    const { handleSubmit } = formMethods;
 
     const [timeSlots, setTimeSlots] = useState([]);
 
@@ -40,9 +41,10 @@ const ReservationComp = ({ navigate }) => {
 
     const onSubmit = (data) => {
         console.log(data);
-        const response = handleSubmit();
+        const response = handleSubmit(() => {
+        })();
         return response ? navigate('/ResConfirm') : null;
-      }
+      };
 
     return (
         <>
@@ -95,7 +97,7 @@ const ReservationComp = ({ navigate }) => {
                                 id="res-time"
                                 name="time"
                                 required=""
-                                value={form && form.name ? form.name : ''}
+                                value={form.time || ''}
                                 >
                                 {timeSlots.map((slot) => (
                                     <option key={slot} value={slot}>
