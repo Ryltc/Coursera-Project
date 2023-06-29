@@ -1,6 +1,7 @@
-import { useState, useReducer, useEffect } from "react";
-import { fetchAPI, submitAPI } from "../APIs/apiMockup";
+import {  useState, useEffect, useReducer,  } from "react";
+import { submitAPI } from "../APIs/apiMockup";
 import { useFormContext } from 'react-hook-form';
+import { fetchAPI } from "../APIs/apiMockup";
 
 const initialState = {
   name: "",
@@ -8,7 +9,9 @@ const initialState = {
   date: "",
   time: "",
   numberOfGuests: 1,
+  tablePreference: "",
   occasion: "",
+  message: "",
 };
 
 const ACTION_TYPES = {
@@ -17,15 +20,23 @@ const ACTION_TYPES = {
   DATE: 2,
   TIME: 3,
   GUESTS: 4,
+  TABLE: 5,
   OCCASION: 6,
+  MESSAGE: 7,
 };
 
-function formReducer(state, action) {
+
+const formReducer = (state, action) => {
   switch (action.type) {
     case ACTION_TYPES.NAME:
       return {
         ...state,
         name: action.payload,
+      };
+    case ACTION_TYPES.EMAIL:
+      return {
+        ...state,
+        email: action.payload,
       };
     case ACTION_TYPES.DATE:
       return {
@@ -42,6 +53,11 @@ function formReducer(state, action) {
         ...state,
         numberOfGuests: action.payload,
       };
+    case ACTION_TYPES.TABLE:
+      return {
+        ...state,
+        tablePreference: action.payload,
+      };
     case ACTION_TYPES.OCCASION:
       return {
         ...state,
@@ -53,11 +69,8 @@ function formReducer(state, action) {
 }
 
 const useForm = () => {
-  const [form, setform, dispatch] = useReducer(formReducer, initialState);
-  const [setTimeslots] = useState(["17:00"]);
+  const [form, dispatch] = useReducer(formReducer, initialState);
   const timeSlots = [
-    "17:00 PM",
-    "17:30 PM",
     "18:00 PM",
     "18:30 PM",
     "19:00 PM",
@@ -69,18 +82,20 @@ const useForm = () => {
     "22:00 PM",
     "22:30 PM",
     "23:00 PM",
-    "23:30 PM",
   ];
+  const [ setTimeslots] = useState(["Choose date first"]);
   const [isFormValid, setFormValid] = useState(false);
   const formContext = useFormContext();
 
   useEffect(() => {
     if (
+      form.email.includes("@") &&
+      form.email.includes(".") &&
+      form.email.trim().length > 5 &&
       form.name.trim().length >= 3 &&
       form.date &&
       form.time &&
-      form.numberOfGuests &&
-      form.occasion
+      form.numberOfGuests
     ) {
       setFormValid(true);
     }
@@ -120,16 +135,17 @@ const useForm = () => {
 
   return {
     form,
+    dispatch,
     methods: {
-    timeSlots,
-    isFormValid,
-    changeNameHandler,
-    changeDateHandler,
-    changeTimeHandler,
-    changeGuestsHandler,
-    changeOccasionHandler,
-    submitHandler,
-    },
+      timeSlots,
+      isFormValid,
+      changeNameHandler,
+      changeDateHandler,
+      changeTimeHandler,
+      changeGuestsHandler,
+      changeOccasionHandler,
+      submitHandler,
+      },
   };
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFormContext }  from 'react-hook-form';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
@@ -7,9 +7,8 @@ import useForm from '../hooks/useForm';
 
 
 const ReservationComp = ({ navigate }) => {
-    const { form, Methods } = useForm();
+    const { form, methods } = useForm();
     const {
-      timeSlots,
       isFormValid,
       changeNameHandler,
       changeDateHandler,
@@ -17,7 +16,25 @@ const ReservationComp = ({ navigate }) => {
       changeGuestsHandler,
       changeOccasionHandler,
       handleSubmit
-    } = Methods;
+    } = methods;
+
+    const [timeSlots, setTimeSlots] = useState([]);
+
+        useEffect(() => {
+            fetchTimeSlots()
+            .then((slots) => setTimeSlots(slots))
+            .catch((error) => console.log(error));
+        }, []);
+
+        const fetchTimeSlots = async () => {
+            try {
+              const response = await fetch("your-api-url");
+              const data = await response.json();
+              return data.timeSlots;
+            } catch (error) {
+              throw new Error("Failed to fetch time slots");
+            }
+          };
 
     const formContext = useFormContext();
 
@@ -38,7 +55,7 @@ const ReservationComp = ({ navigate }) => {
                         <h2>Make A Reservation!</h2>
                     </div>
                         <form
-                            onSubmit={handleSubmit(onSubmit)}
+                            onSubmit={formContext.handleSubmit(onSubmit)}
                             aria-label='On Submit'
                             className="reservation-form">
                             <label className="form-text" htmlFor="name">
@@ -78,7 +95,7 @@ const ReservationComp = ({ navigate }) => {
                                 id="res-time"
                                 name="time"
                                 required=""
-                                value={form ? form.time : ''}
+                                value={form && form.name ? form.name : ''}
                                 >
                                 {timeSlots.map((slot) => (
                                     <option key={slot} value={slot}>
