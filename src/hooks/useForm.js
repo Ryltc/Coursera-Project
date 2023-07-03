@@ -70,32 +70,17 @@ const formReducer = (state, action) => {
 
 const useForm = () => {
   const [form, dispatch] = useReducer(formReducer, initialState);
-  const timeSlots = [
-    "18:00 PM",
-    "18:30 PM",
-    "19:00 PM",
-    "19:30 PM",
-    "20:00 PM",
-    "20:30 PM",
-    "21:00 PM",
-    "21:30 PM",
-    "22:00 PM",
-    "22:30 PM",
-    "23:00 PM",
-  ];
-  const [setTimeslots] = useState([]);
+  const [timeSlots, setTimeslots] = useState([]);
   const [isFormValid, setFormValid] = useState(false);
   const formContext = useFormContext();
 
   useEffect(() => {
     if (
-      form.email.includes("@") &&
-      form.email.includes(".") &&
-      form.email.trim().length > 5 &&
       form.name.trim().length >= 3 &&
       form.date &&
       form.time &&
-      form.numberOfGuests
+      form.numberOfGuests &&
+      form.occasion
     ) {
       setFormValid(true);
     }
@@ -108,20 +93,47 @@ const useForm = () => {
   const changeDateHandler = (e) => {
     dispatch({ type: ACTION_TYPES.DATE, payload: e.target.value });
     fetchTimeSlots(new Date(e.target.value))
-      .then((slots) => setTimeslots([...timeSlots, ...slots]))
+      .then((slots) => setTimeslots(slots))
       .catch((error) => console.log(error));
   };
-
   const fetchTimeSlots = async (date) => {
     try {
-      const response = await fetch("your-api-url");
+      const response = await fetch(
+        "https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js"
+      );
       const data = await response.json();
       return data.timeSlots;
     } catch (error) {
       throw new Error("Failed to fetch time slots");
     }
   };
-
+  /*const fetchTimeSlots = async (date) => {
+    try {
+      const response = await fetch("https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js");
+      const data = await response.json();
+      return data.timeSlots;
+    } catch (error) {
+      throw new Error("Failed to fetch time slots");
+    }
+  };
+  const fetchTimeSlots = async (date) => {
+    // Simulate a delay to mimic an asynchronous API call
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Return the time slots data
+    return [
+      "18:00 PM",
+      "18:30 PM",
+      "19:00 PM",
+      "19:30 PM",
+      "20:00 PM",
+      "20:30 PM",
+      "21:00 PM",
+      "21:30 PM",
+      "22:00 PM",
+      "22:30 PM",
+      "23:00 PM",
+    ];
+  };*/
   const changeTimeHandler = (e) => {
     dispatch({ type: ACTION_TYPES.TIME, payload: e.target.value });
   };
@@ -150,7 +162,6 @@ const useForm = () => {
     dispatch,
     methods: {
       timeSlots,
-      setTimeslots,
       isFormValid,
       changeNameHandler,
       changeDateHandler,
