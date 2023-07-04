@@ -107,35 +107,9 @@ const useForm = () => {
       throw new Error("Failed to fetch time slots");
     }
   };
-  /*const fetchTimeSlots = async (date) => {
-    try {
-      const response = await fetch("https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js");
-      const data = await response.json();
-      return data.timeSlots;
-    } catch (error) {
-      throw new Error("Failed to fetch time slots");
-    }
-  };
-  const fetchTimeSlots = async (date) => {
-    // Simulate a delay to mimic an asynchronous API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    // Return the time slots data
-    return [
-      "18:00 PM",
-      "18:30 PM",
-      "19:00 PM",
-      "19:30 PM",
-      "20:00 PM",
-      "20:30 PM",
-      "21:00 PM",
-      "21:30 PM",
-      "22:00 PM",
-      "22:30 PM",
-      "23:00 PM",
-    ];
-  };*/
   const changeTimeHandler = (e) => {
     dispatch({ type: ACTION_TYPES.TIME, payload: e.target.value });
+    console.log('Selected time:', e.target.value);
   };
 
   const changeGuestsHandler = (e) => {

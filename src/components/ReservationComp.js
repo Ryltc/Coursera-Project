@@ -27,9 +27,11 @@ const ReservationComp = ({ navigate }) => {
             .catch((error) => console.log(error));
         }, []);
 
-        const fetchTimeSlots = async () => {
+        const fetchTimeSlots = async (date) => {
             try {
-              const response = await fetch("your-api-url");
+              const response = await fetch(
+                "https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js"
+              );
               const data = await response.json();
               return data.timeSlots;
             } catch (error) {
