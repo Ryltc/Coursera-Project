@@ -17,8 +17,8 @@ const ResConfirm = ({
                     <div className="reservation-header">
                         <Logo className="reservation-lemon"/>
                     </div>
-                    <div>
-                        <h2>Reservation Confirmed!</h2>
+                    <div className='ResBox'>
+                        <h1>Reservation Confirmed!</h1>
                         <h1>Thank you for your booking, {name}!</h1>
                         <p>
                             Your Reservation is confirmed for {date} at {time} for {guests}{" "}

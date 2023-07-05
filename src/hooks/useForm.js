@@ -109,7 +109,6 @@ const useForm = () => {
   };
   const changeTimeHandler = (e) => {
     dispatch({ type: ACTION_TYPES.TIME, payload: e.target.value });
-    console.log('Selected time:', e.target.value);
   };
 
   const changeGuestsHandler = (e) => {

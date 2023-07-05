@@ -21,31 +21,31 @@ const ReservationComp = ({ navigate }) => {
 
     const [timeSlots, setTimeSlots] = useState([]);
 
-        useEffect(() => {
-            fetchTimeSlots()
-            .then((slots) => setTimeSlots(slots))
-            .catch((error) => console.log(error));
-        }, []);
+    useEffect(() => {
+        fetchTimeSlots()
+          .then((slots) => setTimeSlots(slots))
+          .catch((error) => console.log(error));
+      }, []);
 
-        const fetchTimeSlots = async (date) => {
-            try {
-              const response = await fetch(
-                "https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js"
-              );
-              const data = await response.json();
-              return data.timeSlots;
-            } catch (error) {
-              throw new Error("Failed to fetch time slots");
-            }
-          };
+      const fetchTimeSlots = async () => {
+        try {
+          const response = await fetch(
+            'https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js'
+          );
+          const data = await response.json();
+          return data.timeSlots;
+        } catch (error) {
+          throw new Error('Failed to fetch time slots');
+        }
+      };
 
-    const formContext = useFormContext();
+      const formContext = useFormContext();
 
     const onSubmit = (data) => {
         console.log(data);
         const response = handleSubmit(() => {
         })();
-        return response ? navigate('/ResConfirm') : null;
+        return response ? navigate('/ResConfirmPage') : null;
       };
 
     return (
@@ -94,12 +94,13 @@ const ReservationComp = ({ navigate }) => {
                                 Choose time
                             </label>
                             <select
-                                aria-label="On Change"
-                                onChange={changeTimeHandler}
                                 id="res-time"
+                                type="time"
                                 name="time"
+                                aria-label="On Change"
                                 required=""
                                 value={form.time || ''}
+                                onChange={changeTimeHandler}
                                 >
                                 {timeSlots.map((slot) => (
                                     <option key={slot} value={slot}>

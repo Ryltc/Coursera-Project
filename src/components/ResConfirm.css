@@ -9,13 +9,14 @@ body {
     background-image: url("restaurant.jpg");
     display: flex;
     flex-direction: column;
-    height: 500vh;
+    height: 800vh;
     align-items: center;
 }
 
 .reservation-blocked {
     background-color: #515047;
     width: 700px;
+    height: 820px;
     overflow: hidden;
     margin-top: 40px;
     opacity: 1;
@@ -23,6 +24,16 @@ body {
 
 .reservation-header {
     display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.reservation-header > div {
+    text-align: center;
+    align-items: center;
+    font-size: 40px;
+    color: black !important;
+    font-family: sans-serif;
 }
 
 .reservation-lemon {
@@ -35,6 +46,15 @@ body {
 
 .reservation-subtitle > h2 {
     text-align: center;
+    align-items: center;
+    font-size: 40px;
+    color: black !important;
+    font-family: sans-serif;
+}
+
+.ResBox {
+    text-align: center;
+    align-items: center;
     font-size: 40px;
     color: black !important;
     font-family: sans-serif;
