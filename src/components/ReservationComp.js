@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { useFormContext }  from 'react-hook-form';
+//import { useFormContext }  from 'react-hook-form';
 import { ReactComponent as Logo } from './Logo.svg';
 import './ReservationComp.css';
 import useForm from '../hooks/useForm';
+import { submitAPI } from '../APIs/apiMockup';
 
 
 
 const ReservationComp = ({ navigate }) => {
     const { form, methods } = useForm();
     const {
-      isFormValid,
       changeNameHandler,
       changeDateHandler,
       changeTimeHandler,
       changeGuestsHandler,
       changeOccasionHandler,
     } = methods;
-    const formMethods = useFormContext();
-    const { handleSubmit } = formMethods;
+    //const formMethods = useFormContext();
+    //const { handleSubmit } = formMethods;
 
-    const [timeSlots, setTimeSlots] = useState([]);
+    const [setTimeSlots] = useState([]);
 
     useEffect(() => {
         fetchTimeSlots()
@@ -39,12 +39,11 @@ const ReservationComp = ({ navigate }) => {
         }
       };
 
-      const formContext = useFormContext();
+      //const formContext = useFormContext();
 
     const onSubmit = (data) => {
         console.log(data);
-        const response = handleSubmit(() => {
-        })();
+        const response = submitAPI(data);
         return response ? navigate('/ResConfirmPage') : null;
       };
 
@@ -59,7 +58,7 @@ const ReservationComp = ({ navigate }) => {
                         <h2>Make A Reservation!</h2>
                     </div>
                         <form
-                            onSubmit={formContext.handleSubmit(onSubmit)}
+                            onSubmit={onSubmit}
                             aria-label='On Submit'
                             className="reservation-form">
                             <label className="form-text" htmlFor="name">
@@ -93,18 +92,11 @@ const ReservationComp = ({ navigate }) => {
                             <label htmlFor="res-time">
                                 Choose time
                             </label>
-                            <select
-                                id="res-time"
-                                type="time"
-                                name="time"
-                                aria-label="On Change"
-                                required=""
-                                value={form.time || ''}
-                                onChange={changeTimeHandler}
-                                >
-                                {timeSlots.map((slot) => (
-                                    <option key={slot} value={slot}>
-                                        {slot}
+                            <select value={form.time} onChange={changeTimeHandler}>
+                                <option value=""></option>
+                                {methods.timeSlots.map((timeSlots) => (
+                                    <option key={timeSlots} value={timeSlots}>
+                                        {timeSlots}
                                     </option>
                                 ))}
                             </select>
@@ -120,7 +112,7 @@ const ReservationComp = ({ navigate }) => {
                                 name="guests"
                                 aria-label="On Change"
                                 required=""
-                                value={form.guests}
+                                value={form.Guests}
                                 onChange={changeGuestsHandler}
                             ></input>
                             <br />
@@ -142,9 +134,8 @@ const ReservationComp = ({ navigate }) => {
                                     <option value="Treat Yo-Self!">Treat Yo-Self!</option>
                                     <option value="Promotion">Promotion</option>
                             </select>
-                            <input type="submit" />
                             <button
-                                disabled={!isFormValid}
+                                //disabled={!isFormValid}
                                 className="booking-btn"
                                 type="submit"
                                 value="Make Reservation">

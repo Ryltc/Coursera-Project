@@ -1,30 +1,23 @@
-import {  useState, useEffect, useReducer,  } from "react";
+import { useState, useEffect, useReducer } from "react";
 import { submitAPI } from "../APIs/apiMockup";
 import { useFormContext } from 'react-hook-form';
-//import { fetchAPI } from "../APIs/apiMockup";
 
 const initialState = {
   name: "",
-  email: "",
   date: "",
   time: "",
-  numberOfGuests: 1,
-  tablePreference: "",
+  Guests: 1,
   occasion: "",
-  message: "",
 };
 
 const ACTION_TYPES = {
   NAME: 0,
-  EMAIL: 1,
   DATE: 2,
   TIME: 3,
   GUESTS: 4,
-  TABLE: 5,
   OCCASION: 6,
-  MESSAGE: 7,
-};
 
+};
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -51,7 +44,7 @@ const formReducer = (state, action) => {
     case ACTION_TYPES.GUESTS:
       return {
         ...state,
-        numberOfGuests: action.payload,
+        Guests: action.payload,
       };
     case ACTION_TYPES.TABLE:
       return {
@@ -66,7 +59,7 @@ const formReducer = (state, action) => {
     default:
       return state;
   }
-}
+};
 
 const useForm = () => {
   const [form, dispatch] = useReducer(formReducer, initialState);
@@ -79,10 +72,12 @@ const useForm = () => {
       form.name.trim().length >= 3 &&
       form.date &&
       form.time &&
-      form.numberOfGuests &&
+      form.Guests &&
       form.occasion
     ) {
       setFormValid(true);
+    } else {
+      setFormValid(false);
     }
   }, [form]);
 
@@ -96,6 +91,7 @@ const useForm = () => {
       .then((slots) => setTimeslots(slots))
       .catch((error) => console.log(error));
   };
+
   const fetchTimeSlots = async (date) => {
     try {
       const response = await fetch(
@@ -107,8 +103,9 @@ const useForm = () => {
       throw new Error("Failed to fetch time slots");
     }
   };
-  const changeTimeHandler = (e) => {
-    dispatch({ type: ACTION_TYPES.TIME, payload: e.target.value });
+
+  const changeTimeHandler = (event) => {
+    dispatch({ type: ACTION_TYPES.TIME, payload: event.target.value });
   };
 
   const changeGuestsHandler = (e) => {
@@ -142,7 +139,7 @@ const useForm = () => {
       changeGuestsHandler,
       changeOccasionHandler,
       submitHandler,
-      },
+    },
   };
 };
 

@@ -19,16 +19,16 @@ const ResConfirm = ({
                     </div>
                     <div className='ResBox'>
                         <h1>Reservation Confirmed!</h1>
-                        <h1>Thank you for your booking, {name}!</h1>
-                        <p>
-                            Your Reservation is confirmed for {date} at {time} for {guests}{" "}
+                        <h1>Thank you, {name}!</h1>
+                        <h1>
+                            We will see you on {date} at {time} for {guests}{" "}
                             {guests === 1 ? "guest" : "guests"}.
-                        </p>
+                        </h1>
                             {occasion && (
-                        <p>
-                            Come Celebrate Your{" "}
+                        <h1>
+                            Come Celebrate Your{" "} On Us!
                             {occasion === "birthday" ? "a" : "an"} {occasion}.
-                        </p>
+                        </h1>
                         )}
                     </div>
                 </div>

@@ -22,14 +22,14 @@ const fetchAPI = async () => {
     }
   };
 
-  const submitAPI = async (formData) => {
+  const submitAPI = async (data) => {
     const url = '<API_ENDPOINT>';
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(data),
     };
 
     try {
