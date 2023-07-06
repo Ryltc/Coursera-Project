@@ -29,24 +29,45 @@ const ReservationComp = ({ navigate }) => {
 
       const fetchTimeSlots = async () => {
         try {
-          const response = await fetch(
-            'https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js'
-          );
-          const data = await response.json();
-          return data.timeSlots;
+          const date = new Date(); // Use the desired date to generate time slots
+          const timeSlots = generateTimeSlots(date); // Call a helper function to generate time slots
+          return timeSlots;
         } catch (error) {
           throw new Error('Failed to fetch time slots');
         }
       };
 
-      //const formContext = useFormContext();
-
-    const onSubmit = (data) => {
-        console.log(data);
-        const response = submitAPI(data);
-        return response ? navigate('/ResConfirmPage') : null;
+      const seededRandom = (seed) => {
+        let m = 2 ** 35 - 31;
+        let a = 185852;
+        let s = seed % m;
+        return () => {
+          return (s = (s * a) % m) / m;
+        };
       };
 
+      const generateTimeSlots = (date) => {
+        const result = [];
+        const random = seededRandom(date.getDate());
+
+        for (let i = 17; i <= 23; i++) {
+          if (random() < 0.5) {
+            result.push(`${i}:00`);
+          }
+          if (random() < 0.5) {
+            result.push(`${i}:30`);
+          }
+        }
+      }
+      //const formContext = useFormContext();
+
+    const onSubmit = () => {
+        console.log(form);
+        const response = submitAPI(form);
+        if (response) {
+            navigate('/ResConfirmPage', { state: { formData: form } });
+      };
+    }
     return (
         <>
             <section className="reservation-container">

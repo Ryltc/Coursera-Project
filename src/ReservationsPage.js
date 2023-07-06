@@ -5,7 +5,7 @@ import ReservationComp from "./components/ReservationComp";
 import './ReservationsPage.css';
 
 
-function ReservationPage() {
+function ReservationsPage() {
     const methods = useForm();
     const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ function NestedInput() {
     return <input {...register("test")} />;
 }
 
-export default ReservationPage;
+export default ReservationsPage;
 
 
 

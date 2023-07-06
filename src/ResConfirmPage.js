@@ -1,13 +1,16 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import ResConfirm from "./components/ResConfirm";
 import './ResConfirmPage.css';
 
 
-function ResConfirmPage() {
+const ResConfirmPage = () => {
+    const location = useLocation();
+    const { formData } = location.state || {};
     return (
         <>
-            <ResConfirm />
+            {formData && <ResConfirm formData={formData} />}
         </>
-    )
-}
+    );
+};
 export default ResConfirmPage;

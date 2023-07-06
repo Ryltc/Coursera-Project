@@ -1,5 +1,5 @@
 const fetchAPI = async () => {
-    const url = '<API_ENDPOINT>';
+    const url = 'apiData.json';
     const options = {
       method: 'GET',
       headers: {
@@ -22,8 +22,13 @@ const fetchAPI = async () => {
     }
   };
 
-  const submitAPI = async (data) => {
-    const url = '<API_ENDPOINT>';
+  const submitAPI = async (formData) => {
+    // Simulate a successful submission
+    return { message: 'Data submitted successfully' };
+  };
+
+  /*const submitAPI = async (formData) => {
+    const url = 'https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js';
     const options = {
       method: 'POST',
       headers: {
@@ -45,7 +50,7 @@ const fetchAPI = async () => {
       // Handle the error appropriately
       return null;
     }
-  };
+  };*/
 
   export { fetchAPI, submitAPI };
 

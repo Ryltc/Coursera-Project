@@ -20,7 +20,7 @@ function App() {
         <Routes path='/' element={<RootLayout />}>
           <Route index element={<Hero />} />
           <Route path="ReservationsPage" element={<ReservationsPage />} />
-          <Route path="/ResConfirmPage" element={<ResConfirmPage />} />
+          <Route path="ResConfirmPage" element={<ResConfirmPage />} />
         </Routes>
       <FooterComp />
     </BrowserRouter>
